@@ -1,68 +1,74 @@
 <html>
 <head>
-  <!-- Link the style sheet here -->
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+<body style="background-color:#f4f7fa;">
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#006d77; height: 1in;">
     <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <h2 style="padding-right: 5%; color:white;">Concesionarios</h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+            <a class="nav-link" style="font-size: larger; color:white;" href="/">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
+            <a class="nav-link active" style="font-size: larger; color:white;" href="/about">Sobre Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
+            <a class="nav-link" style="font-size: larger; color:white;" href="/contact">Contáctanos</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
+  <div class="card shadow-lg" style="width: 80%; margin: auto; margin-top:3%; border-radius: 20px;">
+    <div class="banner text-center p-4" style="background-color:#83c5be; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+      <h1 style="color:#023047;">Sobre Nosotros</h1>
+      <p style="font-size: 1.2rem; color:#034c5f;">
+        Bienvenido a <strong>Best Cars</strong>, tu concesionario de confianza. Nos especializamos en la venta de autos nacionales e importados, ofreciendo calidad, garantía y el mejor precio del mercado. 
+        Nuestro compromiso es ayudarte a encontrar el coche perfecto para ti y tu familia.
+      </p>
+    </div>
+
+    <div style="display: flex; flex-direction: row; justify-content: space-around; padding: 2rem;">
+      
+      <div class="card shadow-sm" style="width: 30%; border-radius: 15px;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Persona 1" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+        <div class="card-body text-center">
+          <p class="title" style="font-weight:bold; font-size: 1.2rem;">Laura Martínez</p>
+          <p>Directora General</p>
+          <p class="card-text">Con más de 15 años de experiencia en el sector automotriz, Laura lidera nuestro equipo con pasión y compromiso hacia nuestros clientes.</p>
+          <p><a href="mailto:laura.martinez@example.com">laura.martinez@example.com</a></p>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
+      <div class="card shadow-sm" style="width: 30%; border-radius: 15px;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Persona 2" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+        <div class="card-body text-center">
+          <p class="title" style="font-weight:bold; font-size: 1.2rem;">Carlos Gómez</p>
+          <p>Gerente de Ventas</p>
+          <p class="card-text">Apasionado por los autos y la atención al cliente, Carlos se asegura de que cada comprador viva una experiencia única en nuestro concesionario.</p>
+          <p><a href="mailto:carlos.gomez@example.com">carlos.gomez@example.com</a></p>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
+      <div class="card shadow-sm" style="width: 30%; border-radius: 15px;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Persona 3" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+        <div class="card-body text-center">
+          <p class="title" style="font-weight:bold; font-size: 1.2rem;">María Fernández</p>
+          <p>Asesora de Servicio</p>
+          <p class="card-text">María acompaña a nuestros clientes en el proceso de postventa, asegurándose de que siempre reciban el mejor soporte y mantenimiento.</p>
+          <p><a href="mailto:maria.fernandez@example.com">maria.fernandez@example.com</a></p>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
 
+    </div>
+  </div>
+</body>
 </html>
