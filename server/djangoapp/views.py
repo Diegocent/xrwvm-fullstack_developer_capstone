@@ -1,16 +1,17 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
-from django.contrib.auth.models import User
-from django.contrib.auth import logout, login, authenticate
-from django.contrib import messages
-from datetime import datetime
-from django.views.decorators.csrf import csrf_exempt
-import logging
 import json
+import logging
+from datetime import datetime
 
-from .populate import initiate
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import CarMake, CarModel
-from .restapis import get_request, analyze_review_sentiments, post_review
+from .populate import initiate
+from .restapis import analyze_review_sentiments, get_request, post_review
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
