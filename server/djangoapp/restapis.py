@@ -19,7 +19,9 @@ def get_request(endpoint, **kwargs):
 
     # Armar la URL sin "?" extra si no hay params
     request_url = (
-        f"{backend_url}{endpoint}?{params}" if params else f"{backend_url}{endpoint}"
+        f"{backend_url}{endpoint}?{params}"
+        if params
+        else f"{backend_url}{endpoint}"
     )
 
     print("GET from {}".format(request_url))

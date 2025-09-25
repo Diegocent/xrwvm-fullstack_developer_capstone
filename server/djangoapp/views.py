@@ -69,7 +69,9 @@ def registration(request):
         login(request, user)
         return JsonResponse({"userName": username, "status": "Authenticated"})
     else:
-        return JsonResponse({"userName": username, "error": "Already Registered"})
+        return JsonResponse(
+            {"userName": username, "error": "Already Registered"}
+        )
 
 
 def get_cars(request):
@@ -78,7 +80,9 @@ def get_cars(request):
         initiate()
 
     car_models = CarModel.objects.select_related("car_make")
-    cars = [{"CarModel": cm.name, "CarMake": cm.car_make.name} for cm in car_models]
+    cars = [
+        {"CarModel": cm.name, "CarMake": cm.car_make.name} for cm in car_models
+    ]
 
     return JsonResponse({"CarModels": cars})
 
@@ -114,7 +118,9 @@ def get_dealer_reviews(request, dealer_id):
     enriched_reviews = []
     for review_detail in reviews:
         try:
-            response = analyze_review_sentiments(review_detail.get("review", ""))
+            response = analyze_review_sentiments(
+                review_detail.get("review", "")
+            )
             review_detail["sentiment"] = response.get("sentiment", "neutral")
         except Exception as e:
             review_detail["sentiment"] = "neutral"
@@ -134,4 +140,6 @@ def add_review(request):
         return JsonResponse({"status": 200})
     except Exception as e:
         logger.error(f"Error posting review: {e}")
-        return JsonResponse({"status": 401, "message": "Error in posting review"})
+        return JsonResponse(
+            {"status": 401, "message": "Error in posting review"}
+        )

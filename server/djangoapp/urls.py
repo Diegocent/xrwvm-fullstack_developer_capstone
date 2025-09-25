@@ -14,9 +14,17 @@ urlpatterns = [
     path("get_cars", views.get_cars, name="getcars"),
     # Paths for dealerships
     path("get_dealers", views.get_dealerships, name="get_dealers"),
-    path("get_dealers/<str:state>", views.get_dealerships, name="get_dealers_by_state"),
+    path(
+        "get_dealers/<str:state>",
+        views.get_dealerships,
+        name="get_dealers_by_state",
+    ),
     # Paths for dealer details and reviews
-    path("dealer/<int:dealer_id>", views.get_dealer_details, name="dealer_details"),
+    path(
+        "dealer/<int:dealer_id>",
+        views.get_dealer_details,
+        name="dealer_details",
+    ),
     path(
         "reviews/dealer/<int:dealer_id>",
         views.get_dealer_reviews,
