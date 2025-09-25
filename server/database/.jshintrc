@@ -1,0 +1,9 @@
+{
+  "esversion": 8,
+  "moz": true,
+  "node": true,
+  "browser": true,
+  "undef": true,
+  "unused": true,
+  "predef": ["require", "module", "console", "process"]
+}
