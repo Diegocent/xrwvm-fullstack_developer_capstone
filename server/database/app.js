@@ -77,7 +77,7 @@ app.get('/fetchDealers', async (req, res) => {
 // Fetch dealerships by state
 app.get('/fetchDealers/:state', async (req, res) => {
   try {
-    const state = req.params.state.toUpperCase(); // normalizar estado
+    const state = req.params.state; // normalizar estado
     const dealers = await Dealerships.find({ state: state });
     res.json(dealers);
   } catch (error) {
