@@ -24,18 +24,18 @@ const Dealerships = require('./dealership');
 
 // Inicializar la base de datos
 (async () => {
-  try {
-    await Reviews.deleteMany({});
-    await Reviews.insertMany(reviews_data['reviews']);
-
-    await Dealerships.deleteMany({});
-    await Dealerships.insertMany(dealerships_data['dealerships']);
-
-    console.log("Base de datos inicializada correctamente");
-  } catch (error) {
-    console.error("Error inicializando la base de datos:", error);
-  }
-})();
+    try {
+      await Reviews.deleteMany({});
+      await Reviews.insertMany(reviews_data.reviews); // <- cambio de ['reviews'] a .reviews
+  
+      await Dealerships.deleteMany({});
+      await Dealerships.insertMany(dealerships_data.dealerships); // <- cambio de ['dealerships'] a .dealerships
+  
+      console.log("Base de datos inicializada correctamente");
+    } catch (error) {
+      console.error("Error inicializando la base de datos:", error);
+    }
+  })();
 
 // Rutas
 
