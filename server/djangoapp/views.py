@@ -119,17 +119,28 @@ def get_dealer_details(request, dealer_id):
         return JsonResponse({"status":400,"message":"Bad Request"})
 
 def get_dealer_reviews(request, dealer_id):
-    # if dealer id has been provided
-    if(dealer_id):
-        endpoint = "/fetchReviews/dealer/"+str(dealer_id)
+    if dealer_id:
+        endpoint = f"/fetchReviews/dealer/{dealer_id}"
         reviews = get_request(endpoint)
+
+        if not reviews:  # Si es None o vacío
+            return JsonResponse({"status": 200, "reviews": []})
+
+        # Si hay reviews, analizamos sentimientos
+        enriched_reviews = []
         for review_detail in reviews:
-            response = analyze_review_sentiments(review_detail['review'])
-            print(response)
-            review_detail['sentiment'] = response['sentiment']
-        return JsonResponse({"status":200,"reviews":reviews})
-    else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
+            try:
+                response = analyze_review_sentiments(review_detail.get("review", ""))
+                review_detail["sentiment"] = response.get("sentiment", "neutral")
+            except Exception as e:
+                review_detail["sentiment"] = "neutral"
+                logger.error(f"Error in sentiment analysis: {e}")
+            enriched_reviews.append(review_detail)
+
+        return JsonResponse({"status": 200, "reviews": enriched_reviews})
+
+    return JsonResponse({"status": 400, "message": "Bad Request"})
+
 
 def add_review(request):
     if(request.user.is_anonymous == False):

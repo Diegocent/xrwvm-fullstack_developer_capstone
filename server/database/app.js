@@ -99,31 +99,33 @@ app.get('/fetchDealer/:id', async (req, res) => {
 });
 
 // Insert review
-app.post('/insert_review', express.raw({ type: '*/*' }), async (req, res) => {
-  try {
-    const data = JSON.parse(req.body);
-    const lastReview = await Reviews.findOne().sort({ id: -1 });
-    const new_id = lastReview ? lastReview.id + 1 : 1;
-
-    const review = new Reviews({
-      id: new_id,
-      name: data['name'],
-      dealership: data['dealership'],
-      review: data['review'],
-      purchase: data['purchase'],
-      purchase_date: data['purchase_date'],
-      car_make: data['car_make'],
-      car_model: data['car_model'],
-      car_year: data['car_year'],
-    });
-
-    const savedReview = await review.save();
-    res.json(savedReview);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error inserting review' });
-  }
-});
+app.post('/insert_review', async (req, res) => {
+    try {
+      const data = req.body;
+  
+      const lastReview = await Reviews.findOne().sort({ id: -1 });
+      const new_id = lastReview ? lastReview.id + 1 : 1;
+  
+      const review = new Reviews({
+        id: new_id,
+        name: data.name,
+        dealership: data.dealership,
+        review: data.review,
+        purchase: data.purchase,
+        purchase_date: data.purchase_date,
+        car_make: data.car_make,
+        car_model: data.car_model,
+        car_year: data.car_year,
+      });
+  
+      const savedReview = await review.save();
+      res.json(savedReview);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error inserting review' });
+    }
+  });
+  
 
 // Iniciar el servidor
 app.listen(port, () => {
